@@ -1,0 +1,102 @@
+Entity:
+
+** AirlineManagement:
+- list_of_flights:List[Flights]
+- list_of_crews:List[Crew]
+
++ manage_flight_schedules()
++ aircraft_assignments()
++ crew_aiignments()
++ cancellation()
++ refunds()
++ flight_charges()
++ store_passenger_info(name,age,flight_no, details ,baggage info)
+
+** Users:- (passengers , airline staff , administrators)
++ search(src,dest)->flight
++ book_flight(flight_name)
++ select_seat(flight)
++ payment()
++ raise_cancellation_request()
++ ask_for_refund()
+
+** crew
+- emp_id:
+- first_name
+- last_name
+- flight_id_assocaited
+
+
+** flight
+- flight_id
+- name
+- number_of_seats
+- scheduled_at
+
+
+** Transactions
+- user_id
+- flight_id
+- src
+- dest
+- charges
+- transaction_type Enum(Payment, Cancellation , Refund )
+
+Design X
+- CUrrent and future requirements
+- Come up with entity by drawing the diagram 
+- Class diagram and schema Design
+- Implementation 
+
+------------------------------------------------------
+
+This line:
+
+```python
+logger = logging.getLogger("uvicorn")
+```
+
+does the following:
+
+---
+
+### 🔍 **Breakdown:**
+
+* `logging.getLogger(name)` retrieves a **logger instance** with the specified name—in this case, `"uvicorn"`.
+* `"uvicorn"` is the name of the **ASGI server logger** used in FastAPI and other ASGI apps.
+
+---
+
+### ✅ **What it means:**
+
+* You’re **getting access to Uvicorn's logger**, so you can log messages using the same logging configuration (handlers, formatters, etc.) that Uvicorn uses.
+* This is often used to **log messages from your app** in a way that integrates cleanly into Uvicorn's output (e.g., to STDOUT, with timestamps, levels, etc.).
+
+---
+
+### 📝 Example Use:
+
+```python
+import logging
+
+logger = logging.getLogger("uvicorn")
+
+def my_function():
+    logger.info("This message will appear in Uvicorn's log output")
+```
+
+---
+
+### ⚠️ Without this:
+
+If you use `logging.getLogger(__name__)` or just `print()`, your output may not match Uvicorn’s format or be sent to the same place (e.g., logs, files, stdout).
+
+---
+
+Would you like to customize Uvicorn's logging config or add structured logging (e.g., JSON logs)?
+
+- execute()
+- executemany()
+- fetchval()
+- fetchrow()
+- fetch()
